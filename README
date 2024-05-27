@@ -1,0 +1,6 @@
+========
+Overview
+========
+WYPlayBox2 is an event simulator. Events are generated in the world and actors in the world react to the events and may generate events of their own. 
+
+THIS IS WORK-IN-PROGRESS AND CURRENTLY NOT FIT FOR USE.
