@@ -2,7 +2,7 @@
 #include "WYPB_Event.hpp"
 using namespace WYPlayBox;
 
-WYPB_Event::WYPB_Event(const WYPB_Event_Type p_type, const WYPB_Time *__restrict__ p_time, const WYPB_Event_Priority p_priority,  char *__restrict__ p_desc)
+WYPB_Event::WYPB_Event(const WYPB_Event_Type p_type, const WYPB_Time *__restrict__ p_time, const WYPB_Event_Priority p_priority, const char *__restrict__ p_desc)
 { 
     m_event_type = p_type;
     m_priority = p_priority;

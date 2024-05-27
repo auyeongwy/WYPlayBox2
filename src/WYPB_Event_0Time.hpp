@@ -23,19 +23,13 @@ using namespace WYPlayBox;
 
 namespace WYPlayBox
 {
-
-class WYPB_Actor
+    
+class WYPB_Event_0Time : public WYPB_Event
 {
 public:
-    WYPB_Actor();
+    WYPB_Event_0Time();
 
-    virtual ~WYPB_Actor();
-
-    /**
-     * Processes an event. The event itself must not be modified.
-     * @param p_event The event to process.
-    */
-    virtual void process_event(const WYPB_Event *const p_event)=0;
+    ~WYPB_Event_0Time();
 };
 
 }

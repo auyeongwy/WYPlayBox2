@@ -40,18 +40,11 @@ public:
      * @param p_priority Priority of the event. Defaults to WYPB_EVENT_PRIORITY_1.
      * @param p_desc Text description of the event. This can be returned by the describe() function. Defaults to "".
     */
-    WYPB_Event(const WYPB_Event_Type p_type, const WYPB_Time *__restrict__ p_time, const WYPB_Event_Priority p_priority=WYPB_EVENT_PRIORITY_1,  char *__restrict__ p_desc=NULL);
+    WYPB_Event(const WYPB_Event_Type p_type, const WYPB_Time *__restrict__ p_time, const WYPB_Event_Priority p_priority=WYPB_EVENT_PRIORITY_NORMAL,  const char *__restrict__ p_desc=NULL);
 
     /** Destructor. */
     virtual ~WYPB_Event();
 
-    /**
-     * Sets the implementation-specific event data.
-     * @param p_data The data itself.
-     * @param p_size Size of the data.
-     * @return 0 if success. -1 if error.
-    */
-    //int set_event_data(const void *__restrict__ p_data, const unsigned int p_size);
 
     /**
      * Returns a text description of the event, if it was set during object construction.
