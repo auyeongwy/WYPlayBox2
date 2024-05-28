@@ -1,4 +1,4 @@
-/*      
+/*   
 * Licensed to the Apache Software Foundation (ASF) under one
 * or more contributor license agreements.  See the NOTICE file
 * distributed with this work for additional information
@@ -17,30 +17,21 @@
 * under the License.    
 */
 
-/**
- * @file WYPB_EventDefs.hpp
- * A header file to assign a numerical value to event types specific to the implementation. 
- * 
- * @b Example <br>
- * <code>
- * #define EVENT_MONEY_EARNED 101
- * #define EVENT_MONEY_LOST 102
- * <endcode> 
-*/
-
 #pragma once
+#include <list>
+#include "WYPB_Event.hpp"
+using namespace WYPlayBox;
+
 namespace WYPlayBox
 {
 
-enum WYPB_Event_Priority {
-    WYPB_EVENT_PRIORITY_WORLDTIME=0,
-    WYPB_EVENT_PRIORITY_NORMAL
+class WYPB_Event_Mgr
+{
+public:
+    virtual ~WYPB_Event_Mgr();
+
+protected:
+    std::list<WYPB_Event> m_event_queue; /**< Queue of events. */
 };
 
-enum WYPB_Event_Type {
-    WYPB_EVENT_0_TIME,
-    WYPB_EVENT_DEFAULT
-};
-
-/* All implmentation-specific event types here. */
 }

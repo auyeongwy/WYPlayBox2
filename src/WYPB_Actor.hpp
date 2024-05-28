@@ -24,6 +24,9 @@ using namespace WYPlayBox;
 namespace WYPlayBox
 {
 
+/**
+ * Implements an actor entity. These entities react to events and can generate events of their own.
+*/
 class WYPB_Actor
 {
 public:

@@ -4,8 +4,7 @@ ARCH = -march=native
 #CFLAGS = -Wall -Wextra -std=c++17 -fsanitize=address -static-libasan -O3 -g3
 SRC = ../src
 BUILD = ../build
-OBJS = $(BUILD)/WYPB_Time.o $(BUILD)/WYPB_Event.o $(BUILD)/WYPB_Event_0Time.o $(BUILD)/WYPB_Actor.o $(BUILD)/WYPB_World.o $(BUILD)/WYPB_PlayBox.o
-#API_HEADERS = $(SRC)/WY_Logger.h  
+OBJS = $(BUILD)/WYPB_Time.o $(BUILD)/WYPB_Event.o $(BUILD)/WYPB_Event_Mgr.o $(BUILD)/WYPB_Event_0Time.o $(BUILD)/WYPB_Actor.o $(BUILD)/WYPB_World.o $(BUILD)/WYPB_PlayBox.o
 TARGETLIB = $(BUILD)/lib_WYPlayBox.a
 TARGETAPP = $(BUILD)/WYPlayBoxDemo
 
@@ -27,6 +26,9 @@ $(BUILD)/WYPB_Time.o: $(SRC)/WYPB_Time.hpp $(SRC)/WYPB_Time.cpp
 
 $(BUILD)/WYPB_Event.o: $(SRC)/WYPB_EventDefs.hpp $(SRC)/WYPB_Event.hpp $(SRC)/WYPB_Event.cpp
 	$(CC) $(CFLAGS) $(ARCH)  -c $(SRC)/WYPB_Event.cpp -o $(BUILD)/WYPB_Event.o
+
+$(BUILD)/WYPB_Event_Mgr.o: $(SRC)/WYPB_EventDefs.hpp $(SRC)/WYPB_Event_Mgr.hpp $(SRC)/WYPB_Event_Mgr.cpp
+	$(CC) $(CFLAGS) $(ARCH)  -c $(SRC)/WYPB_Event_Mgr.cpp -o $(BUILD)/WYPB_Event_Mgr.o
 
 $(BUILD)/WYPB_Event_0Time.o: $(SRC)/WYPB_EventDefs.hpp $(SRC)/WYPB_Event_0Time.hpp $(SRC)/WYPB_Event_0Time.cpp
 	$(CC) $(CFLAGS) $(ARCH)  -c $(SRC)/WYPB_Event_0Time.cpp -o $(BUILD)/WYPB_Event_0Time.o
