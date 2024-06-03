@@ -39,7 +39,7 @@ enum WYPB_Event_Priority {
 
 enum WYPB_Event_Type {
     WYPB_EVENT_0_TIME,
-    WYPB_EVENT_DEFAULT
+    WYPB_EVENT_DEFAULT /* Add your own event types after this. */
 };
 
 /* All implmentation-specific event types here. */

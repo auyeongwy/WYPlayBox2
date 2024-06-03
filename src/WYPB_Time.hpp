@@ -81,6 +81,11 @@ public:
     */
     WYPB_Time& operator=(const WYPB_Time& p_time) noexcept;
 
+    /**
+     * Converts the current time to a cstring.
+     * @param p_value Returns the cstring to this valid, allocated buffer. The cantent written will be truncated if the @b p_value provided is smaller than the size of the content.
+     * @param p_size The max size of the p_value buffer. 
+    */
     void to_cstring(char *__restrict__ p_value, const unsigned int p_size) noexcept;
 
 private:

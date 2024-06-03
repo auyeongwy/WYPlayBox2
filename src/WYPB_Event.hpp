@@ -34,6 +34,17 @@ namespace WYPlayBox
 class WYPB_Event
 {
 public:
+    /**
+     * Simple convenience constructor for fast initialization. 
+     * Creates a WYPB_Event object with the attributes:<br>
+     * Type: WYPB_EVENT_DEFAULT<br>
+     * Time: WYPB_TIME_NUMERICAL with time=0.<br>
+     * Priority: WYPB_EVENT_PRIORITY_NORMAL<br>
+     * Description: NULL<br>
+     * 
+    */
+    WYPB_Event();
+
     /** Constructor. 
      * @param p_type Type of event.
      * @param p_time Time of the event. 
@@ -45,12 +56,16 @@ public:
     /** Destructor. */
     virtual ~WYPB_Event();
 
-
     /**
      * Returns a text description of the event, if it was set during object construction.
     */
     char* describe();
 
+    /**
+     * Overload the @b = operator to easily copy the values of one WYPB_Event to another.
+     * @param p_event The WYPB_Event to copy from.
+    */
+    WYPB_Event& operator=(const WYPB_Event& p_event) noexcept;
 
     int m_priority; /**< Event priority. */
     int m_event_type; /**< Type of event. */

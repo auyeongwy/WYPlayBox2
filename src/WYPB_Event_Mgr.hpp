@@ -25,10 +25,30 @@ using namespace WYPlayBox;
 namespace WYPlayBox
 {
 
+/**
+ * Utility class that manages a list of events. 
+ * This uses a FIFO queue, but supports the m_priority attribute in WYPB_Event and will automatically insert events in the queue based on priority.
+*/
 class WYPB_Event_Mgr
 {
 public:
+    /**
+     * Constructor.
+    */
+    WYPB_Event_Mgr();
+
+    /**
+     * Destructor.
+    */
     virtual ~WYPB_Event_Mgr();
+
+    //void add_event(const WYPB_Event *__restrict__ p_event);
+
+    /**
+     * Pops the next event, FIFO-style.
+     * @param p_event Returns the event to be popped. p_event MUST be a valid initialized 
+    */
+    int pop_event(WYPB_Event *__restrict__ p_event);
 
 protected:
     std::list<WYPB_Event> m_event_queue; /**< Queue of events. */
