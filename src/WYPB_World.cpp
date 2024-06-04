@@ -10,7 +10,7 @@ WYPB_World::WYPB_World(const WYPB_Time_Type p_type, const std::timespec *__restr
 
 WYPB_World::~WYPB_World()
 {
-    
+
 }
 
 

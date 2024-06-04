@@ -1,7 +1,7 @@
 CC = g++-11
-CFLAGS = -std=c++17 -Wall -Wextra -O3 -flto
+#CFLAGS = -std=c++17 -Wall -Wextra -O2 -flto
 ARCH = -march=native
-#CFLAGS = -Wall -Wextra -std=c++17 -fsanitize=address -static-libasan -O3 -g3
+CFLAGS = -Wall -Wextra -std=c++17 -fsanitize=address -static-libasan -O2 -g3
 SRC = ../src
 BUILD = ../build
 OBJS = $(BUILD)/WYPB_Time.o $(BUILD)/WYPB_Event.o $(BUILD)/WYPB_Event_Mgr.o $(BUILD)/WYPB_Event_0Time.o $(BUILD)/WYPB_Actor.o $(BUILD)/WYPB_World.o $(BUILD)/WYPB_PlayBox.o

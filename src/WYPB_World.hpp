@@ -19,6 +19,7 @@
 
 #pragma once
 #include "WYPB_Time.hpp"
+#include "WYPB_Event_Mgr.hpp"
 using namespace WYPBPlayBox;
 namespace WYPlayBox
 {
@@ -56,6 +57,7 @@ public:
 
 private:
     WYPB_Time m_world_time; /**< Tracks the world time. The default initialised values can be updated later in the constructor. */
+    WYPB_Event_Mgr m_event_mgr;
 };
 
 } 
