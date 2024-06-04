@@ -59,7 +59,7 @@ public:
     /**
      * Returns a text description of the event, if it was set during object construction.
     */
-    char* describe();
+    char* describe() noexcept;
 
     /**
      * Overload the @b = operator to easily copy the values of one WYPB_Event to another.

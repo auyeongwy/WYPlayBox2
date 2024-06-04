@@ -27,7 +27,7 @@ WYPB_Event::~WYPB_Event()
 }
 
 
-char* WYPB_Event::describe()
+char* WYPB_Event::describe() noexcept
 {
     return m_description;
 }

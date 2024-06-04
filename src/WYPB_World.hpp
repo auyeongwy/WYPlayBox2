@@ -55,7 +55,7 @@ public:
     void run() noexcept;
 
 private:
-    WYPB_Time m_world_time = WYPB_Time(); /**< Tracks the world time. The default initialised values can be updated later in the constructor. */
+    WYPB_Time m_world_time; /**< Tracks the world time. The default initialised values can be updated later in the constructor. */
 };
 
 } 

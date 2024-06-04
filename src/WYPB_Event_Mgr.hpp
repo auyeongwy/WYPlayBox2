@@ -42,13 +42,18 @@ public:
     */
     virtual ~WYPB_Event_Mgr();
 
-    //void add_event(const WYPB_Event *__restrict__ p_event);
+    /**
+     * Adds a new WYPB_Event to the event queue, FIFO-style.
+     * @param p_event A valid WYPB_Event to be added to the event queue. @b std::list is used to copy the content of @b p_event so @b p_event content may be emptied after this function call. 
+    */
+    void add_event(const WYPB_Event *__restrict__ p_event);
 
     /**
      * Pops the next event, FIFO-style.
-     * @param p_event Returns the event to be popped. p_event MUST be a valid initialized 
+     * @param p_event Returns the event to be popped. p_event MUST be a valid initialized WYPB_Event object for the content to be written. If the queue is empty, the data is not modified.
+     * @return Number of events left in the event queue. If the queue is empty, -1 is returned.
     */
-    int pop_event(WYPB_Event *__restrict__ p_event);
+    int pop_event(WYPB_Event *__restrict__ p_event) noexcept;
 
 protected:
     std::list<WYPB_Event> m_event_queue; /**< Queue of events. */

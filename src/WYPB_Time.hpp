@@ -73,7 +73,7 @@ public:
      * If type is WYPB_TIME_NUMERICAL, increments m_time.tv_sec by 1.<br>
      * If type is WYPB_TIME_TIMESTAMP, perform a system call to get the current timestamp.
     */
-    void update_time();
+    void update_time() noexcept;
 
     /**
      * For convenience, overload = operator to assign values on a WYPB_Time object to another.

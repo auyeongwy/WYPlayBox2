@@ -34,7 +34,7 @@ void WYPB_Time::set_time(const WYPB_Time_Type p_type, const std::timespec *__res
 }
 
 
-void WYPB_Time::update_time()
+void WYPB_Time::update_time() noexcept
 {
     if(m_type == WYPB_TIME_NUMERICAL)
         ++m_time.tv_sec;

@@ -23,12 +23,26 @@ using namespace WYPlayBox;
 
 namespace WYPlayBox
 {
-    
+
+/**
+ * An event to signal a time reset when time is set to WYPB_TIME_NUMERICAL.
+ * The intention is that when it is necessary to reset time to 0, this event is sent to all entities in the simulator and all the entities will have to reset their own time values.
+*/
 class WYPB_Event_0Time : public WYPB_Event
 {
 public:
+    /**
+     * Constructor. 
+     * This creates an event with the attributes:<br>
+     * Event type: WYPB_EVENT_0_TIME<br> 
+     * Time: WYPB_TIME_NUMERICAL and value 0<br>
+     * Priority: WYPB_EVENT_PRIORITY_WORLDTIME<br>
+    */
     WYPB_Event_0Time();
 
+    /**
+     * Destructor.
+    */
     ~WYPB_Event_0Time();
 };
 
