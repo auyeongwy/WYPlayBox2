@@ -72,6 +72,9 @@ void WYPB_World::test_events() noexcept
     update_world_time(&time);
     event.modify(WYPB_EVENT_DEFAULT, &time, WYPB_EVENT_PRIORITY_WORLDTIME, NULL);
     add_to_eventmgr(&event);
+    update_world_time(&time);
+    event.modify(WYPB_EVENT_DEFAULT, &time, WYPB_EVENT_PRIORITY_NORMAL, NULL);
+    add_to_eventmgr(&event);
 }
 
 
