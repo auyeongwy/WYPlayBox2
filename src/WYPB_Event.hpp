@@ -57,6 +57,15 @@ public:
     virtual ~WYPB_Event();
 
     /**
+     * Modifies the current event object with new values. 
+     * @param p_type Type of event.
+     * @param p_time Time of the event. 
+     * @param p_priority Priority of the event. Defaults to WYPB_EVENT_PRIORITY_1.
+     * @param p_desc Text description of the event. This can be returned by the describe() function. Defaults to "".
+    */
+    void modify(const WYPB_Event_Type p_type, const WYPB_Time *__restrict__ p_time, const WYPB_Event_Priority p_priority=WYPB_EVENT_PRIORITY_NORMAL,  const char *__restrict__ p_desc=NULL) noexcept;
+
+    /**
      * Overload the @b = operator to easily copy the values of one WYPB_Event to another.
      * @param p_event The WYPB_Event to copy from.
     */
