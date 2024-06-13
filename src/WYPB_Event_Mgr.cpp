@@ -1,4 +1,5 @@
 #include <utility>
+#include <iostream>
 #include "WYPB_Event_Mgr.hpp"
 
 WYPB_Event_Mgr::WYPB_Event_Mgr()
@@ -44,5 +45,16 @@ int WYPB_Event_Mgr::pop_event(WYPB_Event *__restrict__ p_event) noexcept
         *p_event = m_event_queue.front(); /* User override operator to copy the value. */
         m_event_queue.pop_front(); /* Remove the front item from the list. */
         return m_event_queue.size(); /* Return remaining number of items. */
+    }
+}
+
+
+void WYPB_Event_Mgr::list_events() noexcept
+{
+    unsigned int num = 0;
+    std::list<WYPB_Event>::iterator iter;
+    for(iter = m_event_queue.begin(); iter != m_event_queue.end(); iter++) {
+        std::cout << "Event " << ++num << " ";
+        iter->describe();
     }
 }

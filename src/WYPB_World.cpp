@@ -28,7 +28,27 @@ void WYPB_World::update_world_time(WYPB_Time *__restrict__ const p_time) noexcep
 }
 
 
+void WYPB_World::get_event_time(WYPB_Event *__restrict__ p_event) noexcept
+{
+    m_world_time.update_time();
+    p_event->m_time = m_world_time; /* Using operator overload. */
+}
+
+
+void WYPB_World::add_to_eventmgr(const WYPB_Event *__restrict__ p_event) noexcept
+{
+    m_event_mgr.add_event(p_event);
+}
+
+
 void WYPB_World::run() noexcept
+{
+    test_events();
+    //list_events();
+}
+
+
+void WYPB_World::test_time() noexcept
 {
     char tmp[64];
     m_world_time.to_cstring(tmp, 64);
@@ -36,4 +56,26 @@ void WYPB_World::run() noexcept
     m_world_time.update_time();
     m_world_time.to_cstring(tmp, 64);
     std::cout << tmp << "\n";
+}
+
+
+void WYPB_World::test_events() noexcept
+{
+    WYPB_Event event1;
+    event1.describe();
+    get_event_time(&event1);
+    event1.describe();
+    //delete event1;
+    //add_to_eventmgr(&event1);
+    WYPB_Event event2;
+    event2.describe();
+    get_event_time(&event2);
+    event2.describe();
+    //add_to_eventmgr(&event2);
+}
+
+
+void WYPB_World::list_events() noexcept
+{
+    m_event_mgr.list_events();
 }

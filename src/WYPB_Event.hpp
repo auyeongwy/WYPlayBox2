@@ -57,15 +57,15 @@ public:
     virtual ~WYPB_Event();
 
     /**
-     * Returns a text description of the event, if it was set during object construction.
-    */
-    char* describe() noexcept;
-
-    /**
      * Overload the @b = operator to easily copy the values of one WYPB_Event to another.
      * @param p_event The WYPB_Event to copy from.
     */
     WYPB_Event& operator=(const WYPB_Event& p_event) noexcept;
+
+    /**
+     * Test function that prints the event to stdout.
+    */
+    void describe() noexcept;
 
     int m_priority; /**< Event priority. */
     int m_event_type; /**< Type of event. */

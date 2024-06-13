@@ -53,9 +53,39 @@ public:
     */
     void update_world_time(WYPB_Time *__restrict__ const p_time) noexcept;
 
+    /**
+     * Fill a WYPB_Event in WYPB_World using the current time settings.
+     * @param p_event The WYPB_Event to be updated with the current time.  
+    */
+    void get_event_time(WYPB_Event *__restrict__ p_event) noexcept;
+
+    /**
+     * Adds a WYPB_Event to the event mgr in WYPB_World. The WYPB_Event is copied to a new instance so the original WYPB_Event can be deleted if necessary.
+     * @param p_event The WYPB_Event to be copied into the event queue of WYPB_World.
+    */
+    void add_to_eventmgr(const WYPB_Event *__restrict__ p_event) noexcept;
+
+    /**
+     * Starts running the WYPB_World virtual world.
+    */
     void run() noexcept;
 
 private:
+    /**
+     * Internal function to test the timing mechanisms in a WYPB_World object.
+    */
+    void test_time() noexcept;
+
+    /**
+     * Internal function to test the event mechanisms in a WYPB_World object.
+    */
+    void test_events() noexcept;
+
+    /**
+     * Internal function to test and list all events in the event manager of WYPB_World.
+    */
+    void list_events() noexcept;
+
     WYPB_Time m_world_time; /**< Tracks the world time. The default initialised values can be updated later in the constructor. */
     WYPB_Event_Mgr m_event_mgr;
 };

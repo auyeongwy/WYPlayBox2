@@ -23,8 +23,8 @@ using namespace WYPlayBox;
 
 WYPB_PlayBox::WYPB_PlayBox()
 {
-    m_world = new WYPB_World(WYPB_TIME_NUMERICAL, NULL);
-    //m_world = new WYPB_World(WYPB_TIME_TIMESTAMP, NULL, 28800);
+    //m_world = new WYPB_World(WYPB_TIME_NUMERICAL, NULL);
+    m_world = new WYPB_World(WYPB_TIME_TIMESTAMP, NULL, 28800);
 }
 
 

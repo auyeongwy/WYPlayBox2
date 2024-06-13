@@ -1,4 +1,5 @@
 #include <cstring>
+#include <iostream>
 #include "WYPB_Event.hpp"
 using namespace WYPlayBox;
 
@@ -6,7 +7,10 @@ using namespace WYPlayBox;
 WYPB_Event::WYPB_Event()
 {
     WYPB_Time time;
-    WYPB_Event(WYPB_EVENT_DEFAULT, &time, WYPB_EVENT_PRIORITY_NORMAL);
+    m_event_type = WYPB_EVENT_DEFAULT;
+    m_priority = WYPB_EVENT_PRIORITY_NORMAL;
+    m_time = time; /* Operator override. */
+    std::memset(m_description, 0, EVENT_DESC_LEN);
 }
 
 
@@ -27,9 +31,11 @@ WYPB_Event::~WYPB_Event()
 }
 
 
-char* WYPB_Event::describe() noexcept
+void WYPB_Event::describe() noexcept
 {
-    return m_description;
+    char tmp[64];
+    m_time.to_cstring(tmp, 64);
+    std::cout << " Priority:" << m_priority << " Type:" << m_event_type << " Time:" << tmp << "\n";
 }
 
 

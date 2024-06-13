@@ -55,6 +55,12 @@ public:
     */
     int pop_event(WYPB_Event *__restrict__ p_event) noexcept;
 
+    /**
+     * Prints all the events in the WYPB_Event_Mgr to stdout.
+     * 
+    */
+    void list_events() noexcept;
+
 protected:
     std::list<WYPB_Event> m_event_queue; /**< Queue of events. */
 };
