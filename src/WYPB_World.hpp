@@ -57,7 +57,7 @@ public:
      * Fill a WYPB_Event in WYPB_World using the current time settings.
      * @param p_event The WYPB_Event to be updated with the current time.  
     */
-    void get_event_time(WYPB_Event *__restrict__ p_event) noexcept;
+    void get_event_time(WYPB_Event *__restrict__ const p_event) noexcept;
 
     /**
      * Adds a WYPB_Event to the event mgr in WYPB_World. The WYPB_Event is copied to a new instance so the original WYPB_Event can be deleted if necessary.

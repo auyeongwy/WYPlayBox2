@@ -18,7 +18,11 @@ WYPB_Event::WYPB_Event(const WYPB_Event_Type p_type, const WYPB_Time *__restrict
 { 
     m_event_type = p_type;
     m_priority = p_priority;
-    m_time = *p_time; /* Using operator overload. */
+    if(p_time == NULL) {
+        WYPB_Time time;
+        m_time = time; /* Using operator overload. */
+    } else
+        m_time = *p_time; /* Using operator overload. */
     std::memset(m_description, 0, EVENT_DESC_LEN); /* Defaults to 0. */
     if(p_desc != NULL)  /* Fill in the description if it is provided. */
         strncpy(m_description, p_desc, EVENT_DESC_LEN-1);
