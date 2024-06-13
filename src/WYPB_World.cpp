@@ -29,7 +29,7 @@ void WYPB_World::update_world_time(WYPB_Time *__restrict__ const p_time) noexcep
 }
 
 
-void WYPB_World::get_event_time(WYPB_Event *__restrict__ const p_event) noexcept
+void WYPB_World::get_new_event_time(WYPB_Event *__restrict__ const p_event) noexcept
 {
     m_world_time.update_time();
     p_event->m_time = m_world_time; /* Using operator overload. */
@@ -62,17 +62,16 @@ void WYPB_World::test_time() noexcept
 
 void WYPB_World::test_events() noexcept
 {
-    WYPB_Event event1;
-    get_event_time(&event1);
-    add_to_eventmgr(&event1);
-    WYPB_Event event2;
-    get_event_time(&event2);
-    add_to_eventmgr(&event2);
-    WYPB_Time tmp;
-    WYPB_Event event3(WYPB_EVENT_DEFAULT, NULL, WYPB_EVENT_PRIORITY_WORLDTIME, NULL);
-    get_event_time(&event3);
-    event3.describe();
-    add_to_eventmgr(&event3);
+    WYPB_Event event;
+    WYPB_Time time;
+
+    get_new_event_time(&event);
+    add_to_eventmgr(&event);
+    get_new_event_time(&event);
+    add_to_eventmgr(&event);
+    update_world_time(&time);
+    event.modify(WYPB_EVENT_DEFAULT, &time, WYPB_EVENT_PRIORITY_WORLDTIME, NULL);
+    add_to_eventmgr(&event);
 }
 
 
