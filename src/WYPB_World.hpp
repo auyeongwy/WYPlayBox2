@@ -18,8 +18,10 @@
 */
 
 #pragma once
+#include <list>
 #include "WYPB_Time.hpp"
 #include "WYPB_Event_Mgr.hpp"
+#include "WYPB_Actor.hpp"
 using namespace WYPBPlayBox;
 namespace WYPlayBox
 {
@@ -87,7 +89,8 @@ private:
     void list_events() noexcept;
 
     WYPB_Time m_world_time; /**< Tracks the world time. The default initialised values can be updated later in the constructor. */
-    WYPB_Event_Mgr m_event_mgr;
+    WYPB_Event_Mgr m_event_mgr; /**< Manages the list of events om this WYPB_World. */
+    std::list<WYPB_Actor> m_actor_list; /**< List of WYPB_Actor in this WYPB_World. */
 };
 
 } 

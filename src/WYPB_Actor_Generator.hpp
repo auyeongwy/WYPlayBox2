@@ -18,27 +18,29 @@
 */
 
 #pragma once
-#include "WYPB_Event.hpp"
+#include "WYPB_Actor.hpp"
 using namespace WYPlayBox;
 
 namespace WYPlayBox
 {
 
 /**
- * Implements an actor entity. These entities react to events and can generate events of their own.
-*/
-class WYPB_Actor
+ * Generates WYPB_Actor-derived objects for the simulation.
+ */
+class WYPB_Actor_Generator
 {
 public:
-    WYPB_Actor();
+    /** Constructor. */
+    WYPB_Actor_Generator();
 
-    virtual ~WYPB_Actor();
+    /** Destructor. */
+    ~WYPB_Actor_Generator();
 
     /**
-     * Processes an event. The event itself must not be modified.
-     * @param p_event The event to process.
-    */
-    virtual void process_event(const WYPB_Event *const p_event);
+     * Generates a new actor.
+     * @return Pointer to a new WYPB_Actor object, or nullptr if there is allocation error. The newly allocated object must be memory-managed by the calling function or memory leaks will occur. 
+     */
+    WYPB_Actor* create_actor();
 };
 
-}
+} 

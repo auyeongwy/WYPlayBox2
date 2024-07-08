@@ -1,10 +1,10 @@
 CC = g++-11
-#CFLAGS = -std=c++17 -Wall -Wextra -O2 -flto
+CFLAGS = -std=c++17 -Wall -Wextra -O2 -flto
 ARCH = -march=native
-CFLAGS = -Wall -Wextra -std=c++17 -fsanitize=address -static-libasan -O2 -g3
+#CFLAGS = -Wall -Wextra -std=c++17 -fsanitize=address -static-libasan -O2 -g3
 SRC = ../src
 BUILD = ../build
-OBJS = $(BUILD)/WYPB_Time.o $(BUILD)/WYPB_Event.o $(BUILD)/WYPB_Event_Mgr.o $(BUILD)/WYPB_Event_0Time.o $(BUILD)/WYPB_Actor.o $(BUILD)/WYPB_World.o $(BUILD)/WYPB_PlayBox.o
+OBJS = $(BUILD)/WYPB_Time.o $(BUILD)/WYPB_Event.o $(BUILD)/WYPB_Event_Mgr.o $(BUILD)/WYPB_Event_0Time.o $(BUILD)/WYPB_Actor.o $(BUILD)/WYPB_Actor_Generator.o $(BUILD)/WYPB_World.o $(BUILD)/WYPB_PlayBox.o
 TARGETLIB = $(BUILD)/lib_WYPlayBox.a
 TARGETAPP = $(BUILD)/WYPlayBoxDemo
 
@@ -36,14 +36,15 @@ $(BUILD)/WYPB_Event_0Time.o: $(SRC)/WYPB_EventDefs.hpp $(SRC)/WYPB_Event_0Time.h
 $(BUILD)/WYPB_Actor.o: $(SRC)/WYPB_EventDefs.hpp $(SRC)/WYPB_Actor.hpp $(SRC)/WYPB_Actor.cpp
 	$(CC) $(CFLAGS) $(ARCH)  -c $(SRC)/WYPB_Actor.cpp -o $(BUILD)/WYPB_Actor.o
 
+$(BUILD)/WYPB_Actor_Generator.o: $(SRC)/WYPB_EventDefs.hpp $(SRC)/WYPB_Actor_Generator.hpp $(SRC)/WYPB_Actor_Generator.cpp
+	$(CC) $(CFLAGS) $(ARCH)  -c $(SRC)/WYPB_Actor_Generator.cpp -o $(BUILD)/WYPB_Actor_Generator.o
+
 $(BUILD)/WYPB_World.o: $(SRC)/WYPB_World.hpp $(SRC)/WYPB_World.cpp
 	$(CC) $(CFLAGS) $(ARCH)  -c $(SRC)/WYPB_World.cpp -o $(BUILD)/WYPB_World.o
 
 $(BUILD)/WYPB_PlayBox.o: $(SRC)/WYPB_PlayBox.hpp $(SRC)/WYPB_PlayBox.cpp
 	$(CC) $(CFLAGS) $(ARCH)  -c $(SRC)/WYPB_PlayBox.cpp -o $(BUILD)/WYPB_PlayBox.o
 
-#$(BUILD)/WYPB_EventMgr.o: $(SRC)/WYPB_EventMgr.hpp $(SRC)/WYPB_EventMgr.cpp
-#	$(CC) $(CFLAGS) $(ARCH)  -c $(SRC)/WYPB_EventMgr.cpp -o $(BUILD)/WYPB_EventMgr.o
 
 object_msg:
 	@echo Building objects...
